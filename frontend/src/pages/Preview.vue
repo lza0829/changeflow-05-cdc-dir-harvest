@@ -14,7 +14,8 @@ async function loadPreview() {
   }
 }
 onMounted(async () => {
-  streams.value = await getJSON('/api/streams')
+  const all = await getJSON('/api/streams')
+  streams.value = all.filter((s) => s.fixture_path)
   if (streams.value.length) streamId.value = streams.value[0].id
   await loadPreview()
 })

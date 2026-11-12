@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from app.db import connect
+from app.repositories import harvest as harvest_repo
 from app.repositories import quarantine as quarantine_repo
 from app.repositories import runs as runs_repo
 from app.repositories import sink as sink_repo
@@ -21,6 +22,10 @@ def dashboard():
             "sink_count": sink_repo.count_sink(conn),
             "quarantine_count": quarantine_repo.count_quarantine(conn),
             "run_count": len(runs_repo.list_runs(conn, limit=10000)),
+            "harvest_task_count": len(harvest_repo.list_tasks(conn, limit=10000)),
+            "harvest_collected_events": sum(
+                t["event_count"] for t in harvest_repo.list_tasks(conn, limit=10000)
+            ),
             "recent_runs": runs,
         }
     finally:

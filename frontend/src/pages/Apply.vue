@@ -36,7 +36,9 @@ onMounted(async () => {
     <div class="row-actions panel">
       <label>流
         <select v-model.number="streamId">
-          <option v-for="s in streams" :key="s.id" :value="s.id">{{ s.id }} · {{ s.name }}（游标 {{ s.apply_cursor }}）</option>
+          <option v-for="s in streams" :key="s.id" :value="s.id">
+            {{ s.id }} · {{ s.name }}（游标 {{ s.apply_cursor }}）{{ s.fixture_path ? '' : '· 采集流' }}
+          </option>
         </select>
       </label>
       <button :disabled="busy" @click="runApply">{{ busy ? '应用中…' : '执行 Apply' }}</button>
@@ -50,6 +52,7 @@ onMounted(async () => {
         · loaded {{ last.loaded_count }} / applied {{ last.applied_count }} /
         quarantined {{ last.quarantined_count }} / skipped {{ last.skipped_count }}
         · cursor {{ last.cursor_before }} → {{ last.cursor_after }}
+        <span v-if="last.harvest_task_id" class="tag warn">采集任务 #{{ last.harvest_task_id }}</span>
       </p>
       <pre class="mono">{{ JSON.stringify(last.report, null, 2) }}</pre>
     </div>
@@ -57,12 +60,13 @@ onMounted(async () => {
       <h3>历史 Runs</h3>
       <table>
         <thead>
-          <tr><th>ID</th><th>流</th><th>状态</th><th>loaded</th><th>applied</th><th>quarantine</th><th>skipped</th><th>cursor</th><th>时间</th></tr>
+          <tr><th>ID</th><th>流</th><th>来源</th><th>状态</th><th>loaded</th><th>applied</th><th>quarantine</th><th>skipped</th><th>cursor</th><th>时间</th></tr>
         </thead>
         <tbody>
           <tr v-for="r in runs" :key="r.id">
             <td>{{ r.id }}</td>
             <td>{{ r.stream_id }}</td>
+            <td>{{ r.harvest_task_id ? `采集 #${r.harvest_task_id}` : '夹具' }}</td>
             <td>{{ r.status }}</td>
             <td>{{ r.loaded_count }}</td>
             <td>{{ r.applied_count }}</td>

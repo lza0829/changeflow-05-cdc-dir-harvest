@@ -114,6 +114,14 @@ select, input {
 .tag.ok { background: color-mix(in srgb, var(--ok) 25%, transparent); color: var(--ok); }
 .tag.warn { background: color-mix(in srgb, var(--warn) 25%, transparent); color: var(--warn); }
 .row-actions { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.grow { flex: 1; }
+.demo-link { margin-right: 0.5rem; }
+.clickable { cursor: pointer; }
+.clickable:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+tr.selected { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.checks { list-style: none; padding: 0; margin: 0.5rem 0; }
+.checks li { display: flex; gap: 0.5rem; align-items: center; padding: 0.15rem 0; }
+h3, h4 { margin: 0.6rem 0 0.4rem; }
 pre.mono {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 0.82rem;

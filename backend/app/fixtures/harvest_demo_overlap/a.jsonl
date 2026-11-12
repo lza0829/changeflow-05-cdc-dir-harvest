@@ -1,0 +1,2 @@
+{"seq":1,"op":"upsert","entity_key":"OV-1","event_ts":"t","payload":{}}
+{"seq":2,"op":"upsert","entity_key":"OV-2","event_ts":"t","payload":{}}

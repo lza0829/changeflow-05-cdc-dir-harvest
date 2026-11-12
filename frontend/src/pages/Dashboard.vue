@@ -24,7 +24,12 @@ onMounted(async () => {
       <div class="tile"><div class="hero-num">{{ stats.sink_count }}</div><div class="muted">Sink</div></div>
       <div class="tile"><div class="hero-num">{{ stats.quarantine_count }}</div><div class="muted">隔离</div></div>
       <div class="tile"><div class="hero-num">{{ stats.run_count }}</div><div class="muted">Apply Runs</div></div>
+      <div class="tile"><div class="hero-num">{{ stats.harvest_task_count }}</div><div class="muted">采集任务</div></div>
+      <div class="tile"><div class="hero-num">{{ stats.harvest_collected_events }}</div><div class="muted">采集入账事件</div></div>
     </div>
-    <router-link to="/apply">去应用台跑一趟 →</router-link>
+    <div class="row-actions">
+      <router-link to="/harvest">去采集巡检收一批 →</router-link>
+      <router-link to="/apply">去应用台跑一趟 →</router-link>
+    </div>
   </div>
 </template>

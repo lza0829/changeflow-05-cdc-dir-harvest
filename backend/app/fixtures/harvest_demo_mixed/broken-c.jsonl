@@ -1,0 +1,2 @@
+{"seq":1,"op":"upsert","entity_key":"X","event_ts":"t","payload":{}}
+{"seq":1,"op":"delete","entity_key":"Y","event_ts":"t"}

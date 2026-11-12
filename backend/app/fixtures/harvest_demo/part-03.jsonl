@@ -1,0 +1,2 @@
+{"seq":7,"op":"upsert","entity_key":"CUST-3005","event_ts":"2026-11-02T08:30:00Z","payload":{"segment":"smb","status":"trial"}}
+{"seq":8,"op":"upsert","entity_key":"CUST-3005","event_ts":"2026-11-02T08:35:00Z","payload":{"segment":"smb","status":"active"}}

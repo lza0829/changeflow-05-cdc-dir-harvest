@@ -1,0 +1,2 @@
+{"seq":1,"op":"upsert","entity_key":"SKU-4001","event_ts":"2026-11-03T08:00:00Z","payload":{"qty":10}}
+{"seq":3,"op":"upsert","entity_key":"SKU-4003","event_ts":"2026-11-03T08:10:00Z","payload":{"qty":7}}
