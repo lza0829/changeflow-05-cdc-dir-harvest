@@ -7,7 +7,7 @@ onMounted(async () => { rows.value = await getJSON('/api/quarantine') })
 <template>
   <div class="page">
     <h1>隔离区</h1>
-    <p class="muted">缺口、毒丸等未能提交的事件落此（底座默认缺口停）。</p>
+    <p class="muted">缺口、毒丸等未能提交的事件落此（默认缺口停）。</p>
     <div class="panel">
       <table>
         <thead>
